@@ -2,8 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const transferSchema = new Schema({
-    // schema for transfer
-})
+    // sender, receiver, amount, status
+    sender: {
+
+    },
+    receiver: {
+
+    },
+    amount: { 
+
+    },
+    status: {
+
+    }
+});
 
 const Transfer = mongoose.model('Transfer', transferSchema);
 
