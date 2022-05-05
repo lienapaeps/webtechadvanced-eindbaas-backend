@@ -1,9 +1,15 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+// const logger = require('./middleware/logger');
+const app = express();
+const port = 3000;
+const apiV1Transfersrouter = require('./routers/api/v1/transfers');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+app.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
-module.exports = router;
+app.use('api/v1/transfers', apiV1Transfersrouter);
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
