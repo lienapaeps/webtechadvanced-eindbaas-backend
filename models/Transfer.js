@@ -4,10 +4,12 @@ const Schema = mongoose.Schema;
 const transferSchema = new Schema({
     // sender, receiver, amount, message, status
     sender: {
-
+        type: String,
+        required: true
     },
     receiver: {
-        
+        type:  String,
+        required: true
     },
     amount: { 
         type: Number,
@@ -17,7 +19,6 @@ const transferSchema = new Schema({
         type: String,
         required: true
     },
-    status: Boolean
 });
 
 const Transfer = mongoose.model('Transfer', transferSchema);
