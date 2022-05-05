@@ -11,8 +11,5 @@ router.get("/", controller.getTransfers);
 // GET transfer with id
 router.get("/", controller.getTransferById);
 
-// GET leaderboard
-router.get("/", controller.getLeaderboard);
-
 module.exports = router;
 
