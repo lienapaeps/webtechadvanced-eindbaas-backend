@@ -5,7 +5,7 @@ const getLeaderboard = (req, res) => {
     const response = {
         status: "success",
         data: {
-            transfers: [
+            users: [
                 {
                     "username": "ElonX",
                     "balance": 100
