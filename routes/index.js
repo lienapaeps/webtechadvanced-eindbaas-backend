@@ -1,7 +1,7 @@
 const express = require('express');
 // const logger = require('./middleware/logger');
 const app = express();
-const port = 3000;
+const port = 3002;
 const apiV1Transfersrouter = require('../routes/api/v1/transfers');
 const apiV1Usersrouter = require('../routes/api/v1/users');
 

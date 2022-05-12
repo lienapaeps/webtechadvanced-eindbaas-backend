@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     // sender, receiver, amount, message, status
     id: {
-        type: String,
+        type: Number,
         required: true
     },
     username: {

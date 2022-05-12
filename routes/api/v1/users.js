@@ -5,4 +5,6 @@ const controller = require('../../../controllers/api/v1/users');
 // GET leaderboard
 router.get("/", controller.getLeaderboard);
 
+
+
 module.exports = router;

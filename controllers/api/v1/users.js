@@ -7,9 +7,20 @@ const getLeaderboard = (req, res) => {
         data: {
             users: [
                 {
+                    "id": 1,
                     "username": "ElonX",
                     "balance": 100
                 },
+                {
+                    "id": 2,
+                    "username": "Joris",
+                    "balance": 200
+                },
+                {
+                    "id": 3,
+                    "username": "Rix",
+                    "balance": 300
+                }
             ]
         }
     }
