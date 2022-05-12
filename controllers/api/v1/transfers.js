@@ -36,9 +36,17 @@ const getTransfers = (req, res) => {
             transfers: [
                 {
                     "sender": "Elon",
-                    "receiver": "Tesla",
+                    "receiver": "Rix",
                     "amount": "100",
-                    "message": "Javascript is fun!!✌"
+                    "message": "Javascript is fun!!✌",
+                    "time": "10-05-2022 10:00"
+                },
+                {
+                    "sender": "Rix",
+                    "receiver": "Joris",
+                    "amount": "200",
+                    "message": "Test message lorem de ipsum.",
+                    "time": "10-05-2022 10:00"
                 },
             ]
         }
