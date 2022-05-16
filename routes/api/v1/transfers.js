@@ -12,4 +12,3 @@ router.get("/", controller.getTransfers);
 router.get("/", controller.getTransferById);
 
 module.exports = router;
-
