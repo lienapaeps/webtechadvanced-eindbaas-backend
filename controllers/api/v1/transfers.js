@@ -30,47 +30,45 @@ const create = (req, res) => {
 
 // GET transfers
 const getTransfers = (req, res) => {
-    const response = {
-        status: "success",
-        data: {
-            transfers: [
-                {
-                    "sender": "Elon",
-                    "receiver": "Rix",
-                    "amount": "100",
-                    "message": "Javascript is fun!!✌",
-                    "time": "10-05-2022 10:00"
-                },
-                {
-                    "sender": "Rix",
-                    "receiver": "Joris",
-                    "amount": "200",
-                    "message": "Test message lorem de ipsum.",
-                    "time": "10-05-2022 10:00"
-                },
-            ]
+    Transfer.find( (err, docs) => {
+        if (err) {
+            res.json( {
+                "status": "Error",
+                "message": err
+            });
         }
-    }
-    res.json(response);
+
+        if(!err) {
+            res.json( {
+                "status": "Success",
+                "data": {
+                    transfers: docs
+                }
+            });
+        }
+
+    } )
 }
 
 // GET transfer with id
 const getTransferById = (req, res) => {
-    const response = {
-        status: "success",
-        data: {
-            transfers: [
-                {
-                    "sender": "Elon",
-                    "receiver": "Tesla",
-                    "amount": "100",
-                    "message": "Javascript is fun!!✌"
-                },
-            ]
+    Message.find({"_id": req.params.id}, (err, doc) => {
+        if (err) {
+            res.json({
+                "status": "Error",
+                "message": err
+            });
         }
-    }
-    res.json(response);
 
+        if(!err) {
+            res.json({
+                "status": "Success",
+                "data": {
+                    transfer: doc
+                }
+            });
+        }
+    })
 }
 
 
