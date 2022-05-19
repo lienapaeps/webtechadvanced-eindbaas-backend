@@ -1,6 +1,7 @@
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
+const config = require('config');
 const transferRouter = require("./routes/api/v1/transfers");
 const userRouter = require("./routes/api/v1/users");
 

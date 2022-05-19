@@ -18,11 +18,13 @@ const create = (req, res) => {
                 }
             });
         } else if (err) {
+            console.log(err);
             res.json( {
                 "status": "Error",
                 "message": "Error while creating transfer"
             });
         }
+
     } );
 
     // console.log(req.body);

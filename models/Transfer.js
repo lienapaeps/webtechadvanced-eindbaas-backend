@@ -21,7 +21,7 @@ const transferSchema = new Schema({
     },
     time: {
         type: Date,
-        required: true
+        required: false
     }
 });
 
