@@ -31,25 +31,45 @@ const create = (req, res) => {
 
 // GET transfers
 const getTransfers = (req, res) => {
-    const response = {
-        status: "success",
-        data: {
-            transfers: []
+    Transfer.find( (err, docs) => {
+        if (err) {
+            res.json( {
+                "status": "Error",
+                "message": err
+            });
         }
-    }
-    res.json(response);
+
+        if(!err) {
+            res.json( {
+                "status": "Success",
+                "data": {
+                    transfers: docs
+                }
+            });
+        }
+
+    } )
 }
 
 // GET transfer with id
 const getTransferById = (req, res) => {
-    const response = {
-        status: "success",
-        data: {
-            transfers: []
+    Message.find({"_id": req.params.id}, (err, doc) => {
+        if (err) {
+            res.json({
+                "status": "Error",
+                "message": err
+            });
         }
-    }
-    res.json(response);
 
+        if(!err) {
+            res.json({
+                "status": "Success",
+                "data": {
+                    transfer: doc
+                }
+            });
+        }
+    })
 }
 
 

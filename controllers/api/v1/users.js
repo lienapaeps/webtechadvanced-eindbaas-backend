@@ -32,14 +32,24 @@ const register = (req, res) => {
 
 // GET leaderboard
 const getLeaderboard = (req, res) => {
-    const response = {
-        status: "success",
-        data: {
-            users: []
+    User.find( (err, docs) => {
+        if (err) {
+            res.json( {
+                "status": "Error",
+                "message": err
+            });
         }
-    }
-    res.json(response);
 
+        if(!err) {
+            res.json( {
+                "status": "Success",
+                "data": {
+                    users: docs
+                }
+            });
+        }
+
+    } )
 }
 
 module.exports.register = register;
