@@ -7,6 +7,7 @@ const create = (req, res) => {
     transfer.receiver = req.body.receiver;
     transfer.amount = req.body.amount;
     transfer.message = req.body.message;
+    transfer.time = req.body.time;
 
     transfer.save((err, doc) => {
         if (!err) {
@@ -33,22 +34,7 @@ const getTransfers = (req, res) => {
     const response = {
         status: "success",
         data: {
-            transfers: [
-                {
-                    "sender": "Elon",
-                    "receiver": "Rix",
-                    "amount": "100",
-                    "message": "Javascript is fun!!✌",
-                    "time": "10-05-2022 10:00"
-                },
-                {
-                    "sender": "Rix",
-                    "receiver": "Joris",
-                    "amount": "200",
-                    "message": "Test message lorem de ipsum.",
-                    "time": "10-05-2022 10:00"
-                },
-            ]
+            transfers: []
         }
     }
     res.json(response);
@@ -59,14 +45,7 @@ const getTransferById = (req, res) => {
     const response = {
         status: "success",
         data: {
-            transfers: [
-                {
-                    "sender": "Elon",
-                    "receiver": "Tesla",
-                    "amount": "100",
-                    "message": "Javascript is fun!!✌"
-                },
-            ]
+            transfers: []
         }
     }
     res.json(response);

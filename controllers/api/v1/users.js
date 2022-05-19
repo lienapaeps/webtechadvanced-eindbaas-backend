@@ -1,45 +1,46 @@
 const User = require('../../../models/user');
 
+
+const register = (req, res) => {
+    let user = new User();
+    user.id = req.body.id;
+    user.username = req.body.username;
+    user.email = req.body.email;
+    user.password = req.body.password;
+    user.balance = req.body.balance;
+
+    user.save((err, doc) => {
+        if (!err) {
+            res.json( {
+                "status": "Success",
+                "data": {
+                    "transfer": doc
+                }
+            });
+        } else if (err) {
+            res.json( {
+                "status": "Error",
+                "message": "Error while creating user"
+            });
+        }
+    } );
+
+    // console.log(req.body);
+    // res.send("POSTING new message");
+}
+
+
 // GET leaderboard
 const getLeaderboard = (req, res) => {
     const response = {
         status: "success",
         data: {
-            users: [
-                {
-                    "id": 1,
-                    "username": "ElonX",
-                    "email": "elon@musk.com",
-                    "password": "12345",
-                    "balance": 100
-                },
-                {
-                    "id": 2,
-                    "username": "Joris",
-                    "email": "josir@musk.com",
-                    "password": "12345",
-                    "balance": 200
-                },
-                {
-                    "id": 3,
-                    "username": "Rix",
-                    "email": "rix@musk.com",
-                    "password": "12345",
-                    "balance": 300
-                },
-                {
-                    "id": 4,
-                    "username": "jos",
-                    "email": "jos@jos.com",
-                    "password": "12345",
-                    "balance": 150
-                },
-            ]
+            users: []
         }
     }
     res.json(response);
 
 }
 
-
+module.exports.register = register;
 module.exports.getLeaderboard = getLeaderboard;
