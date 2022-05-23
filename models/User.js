@@ -1,30 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 
-const userSchema = new Schema({
-    // sender, receiver, amount, message, status
-    id: {
-        type: Number,
-        required: true
-    },
-    username: {
-        type:  String,
-        required: true
-    },
-    email: { 
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
+const User = new Schema({
+    // username en password zitten er standaard in 
     balance: {
         type: Number,
-        required: true
+        default: 100
     }
 });
 
-const User = mongoose.model('User', userSchema);
+User.plugin(passportLocalMongoose);
 
-module.exports = User;
+// const User = mongoose.model('User', userSchema);
+
+module.exports = mongoose.model('User', User);

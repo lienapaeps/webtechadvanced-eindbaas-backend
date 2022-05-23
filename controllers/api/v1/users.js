@@ -1,4 +1,4 @@
-const User = require('../../../models/user');
+const User = require('../../../models/User');
 
 
 const register = (req, res) => {
@@ -39,7 +39,6 @@ const getLeaderboard = (req, res) => {
                 "message": err
             });
         }
-
         if(!err) {
             res.json( {
                 "status": "Success",
@@ -50,7 +49,6 @@ const getLeaderboard = (req, res) => {
         }
 
     } )
-}
+};
 
-module.exports.register = register;
 module.exports.getLeaderboard = getLeaderboard;
