@@ -21,17 +21,18 @@ const getLeaderboard = (req, res) => {
     } )
 };
 
-// signup
+// register
 const register = async (req, res) => {
     console.log(req.body);
 
     let username = req.body.username;
     let password = req.body.password;
+    let email = req.body.email;
 
-    const user = new User({username: username});
+    const user = new User({username: username, email: email});
     await user.setPassword(password);
     await user.save().then(result => {
-        result.json({
+        res.json({
             "status": "Success"
         })
     }).catch(error => {
@@ -39,7 +40,27 @@ const register = async (req, res) => {
             "status": "Error"
         })
     });
+
+    //_id, email, balance, username, salt, hash, __v
+};
+
+// login
+const login = async (req, res) => {
+    const user = await User.authenticate()(req.body.username, req.body.password).then(result => {
+        res.json({
+            "status": "Success",
+            "data": {
+                user: result
+            }
+        })
+    }).catch(error => {
+        res.json({
+            "status": "Error",
+            "message": error
+        })
+    });
 };
 
 module.exports.getLeaderboard = getLeaderboard;
 module.exports.register = register;
+module.exports.login = login;

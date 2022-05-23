@@ -3,26 +3,15 @@ const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const User = new Schema({
-    // id: {
-    //     type: Number,
-    //     required: true
-    // },
-    // username: {
-    //     type:  String,
-    //     required: true
-    // },
-    // email: { 
-    //     type: String,
-    //     required: true
-    // },
-    // password: {
-    //     type: String,
-    //     required: true
-    // },
-    // balance: {
-    //     type: Number,
-    //     required: true
-    // }
+    // username en password zitten er standaard in 
+    email: { 
+        type: String,
+        required: true
+    },
+    balance: {
+        type: Number,
+        default: 100
+    }
 });
 
 User.plugin(passportLocalMongoose);
