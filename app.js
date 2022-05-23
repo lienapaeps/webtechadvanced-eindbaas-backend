@@ -16,11 +16,6 @@ app.use(cors());
 app.use("/api/v1/transfers", passport.authenticate('jwt', { session: false }), transferRouter);
 app.use("/api/v1/users", userRouter);
 
-//REST
-// app.get('/', (req, res) => {
-//   res.render("index", {title: "cool", message: "wauw seeeeg!😍"});
-// });
-
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
