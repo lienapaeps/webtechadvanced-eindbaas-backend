@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 
 const userSchema = new Schema({
     // sender, receiver, amount, message, status
@@ -24,6 +25,8 @@ const userSchema = new Schema({
         required: true
     }
 });
+
+User.plugin(passportLocalMongoose);
 
 const User = mongoose.model('User', userSchema);
 

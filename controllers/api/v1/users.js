@@ -9,7 +9,6 @@ const getLeaderboard = (req, res) => {
                 "message": err
             });
         }
-
         if(!err) {
             res.json( {
                 "status": "Success",
@@ -22,5 +21,12 @@ const getLeaderboard = (req, res) => {
     } )
 }
 
-
+// signup
+const register = (req, res) => {
+    //username, password uit request halen
+    //bycrypt encrypt
+    //databank
+    
+}
 module.exports.getLeaderboard = getLeaderboard;
+module.exports.register = register;
