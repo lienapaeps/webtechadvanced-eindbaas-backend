@@ -1,4 +1,5 @@
 const User = require('../../../models/User');
+const jwt = require('jsonwebtoken');
 
 // GET leaderboard
 const getLeaderboard = (req, res) => {
@@ -27,13 +28,24 @@ const register = async (req, res) => {
 
     let username = req.body.username;
     let password = req.body.password;
-    let email = req.body.email;
 
-    const user = new User({username: username, email: email});
+    const user = new User({username: username});
     await user.setPassword(password);
     await user.save().then(result => {
+        console.log(result);
+
+        // token genereren
+        let token = jwt.sign({
+            uid: result._id,
+            username: result.username
+        }, "secret");
+
+        // status en webtoken meegeven
         res.json({
-            "status": "Success"
+            "status": "Success",
+            "data": {
+                "token": token
+            }
         })
     }).catch(error => {
         res.json({

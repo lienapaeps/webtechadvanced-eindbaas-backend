@@ -4,10 +4,6 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 const User = new Schema({
     // username en password zitten er standaard in 
-    email: { 
-        type: String,
-        required: true
-    },
     balance: {
         type: Number,
         default: 100
