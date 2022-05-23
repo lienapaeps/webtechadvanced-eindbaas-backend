@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
 
 app.use('api/v1/transfers', apiV1Transfersrouter);
 app.use('api/v1/users', apiV1Usersrouter);
+app.use('api/v1/auth', apiV1Usersrouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../../../controllers/api/v1/users');
+const authController = require('../../../controllers/api/v1/auth');
 
 // GET leaderboard
 router.get("/", controller.getLeaderboard);
 
-//sign up
-router.post("/register", controller.register);
-router.post("/login", controller.login);
+// register
+router.post("/register", authController.register);
+// login
+router.post("/login", authController.login);
 
 module.exports = router;
