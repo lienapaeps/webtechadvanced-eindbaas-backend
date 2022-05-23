@@ -1,4 +1,4 @@
-const User = require('../../../models/user');
+const User = require('../../../models/User');
 
 // GET leaderboard
 const getLeaderboard = (req, res) => {
@@ -19,14 +19,27 @@ const getLeaderboard = (req, res) => {
         }
 
     } )
-}
+};
 
 // signup
-const register = (req, res) => {
-    //username, password uit request halen
-    //bycrypt encrypt
-    //databank
-    
-}
+const register = async (req, res) => {
+    console.log(req.body);
+
+    let username = req.body.username;
+    let password = req.body.password;
+
+    const user = new User({username: username});
+    await user.setPassword(password);
+    await user.save().then(result => {
+        result.json({
+            "status": "Success"
+        })
+    }).catch(error => {
+        res.json({
+            "status": "Error"
+        })
+    });
+};
+
 module.exports.getLeaderboard = getLeaderboard;
 module.exports.register = register;
