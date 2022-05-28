@@ -3,7 +3,9 @@ const Transfer = require('../../../models/transfer');
 // POST transfer
 const create = (req, res) => {
     let transfer = new Transfer();
-    transfer.sender = req.body.sender;
+    // console.log(req.user);
+
+    transfer.sender = req.user.username;
     transfer.receiver = req.body.receiver;
     transfer.amount = req.body.amount;
     transfer.message = req.body.message;
@@ -33,7 +35,9 @@ const create = (req, res) => {
 
 // GET transfers
 const getTransfers = (req, res) => {
-    Transfer.find( (err, docs) => {
+    Transfer.find({
+        "user": req.user._id,
+    }, (err, docs) => {
         if (err) {
             res.json( {
                 "status": "Error",
@@ -45,7 +49,7 @@ const getTransfers = (req, res) => {
             res.json( {
                 "status": "Success",
                 "data": {
-                    transfers: docs
+                    "transfers": docs
                 }
             });
         }

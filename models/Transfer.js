@@ -5,7 +5,7 @@ const transferSchema = new Schema({
     // sender, receiver, amount, message
     sender: {
         type: String,
-        required: true
+        required: false
     },
     receiver: {
         type:  String,
