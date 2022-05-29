@@ -6,7 +6,6 @@ const passport = require('./passport/passport');
 const transferRouter = require("./routes/api/v1/transfers");
 const userRouter = require("./routes/api/v1/users");
 
-mongoose.set('useCreateIndex', true);
 mongoose.connect(process.env.dbconn || config.get('Database.conn'), {
     useNewUrlParser: true,
 });
