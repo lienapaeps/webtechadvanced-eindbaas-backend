@@ -1,12 +1,12 @@
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
-const config = require('config');
+const config = require('./config/default.json');
 const passport = require('./passport/passport');
 const transferRouter = require("./routes/api/v1/transfers");
 const userRouter = require("./routes/api/v1/users");
 
-mongoose.connect('mongodb://localhost:27017/coinapp');
+mongoose.connect('mongodb+srv://ricky01:7t7qK0QFB7wgnBB9@cluster0.mrm22.mongodb.net/?retryWrites=true&w=majority');
 const app = express();
 const port = 3002;
 app.set('view engine', 'pug');
