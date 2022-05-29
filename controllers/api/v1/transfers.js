@@ -1,4 +1,4 @@
-const Transfer = require('../../../models/transfer');
+const Transfer = require('../../../models/Transfer');
 
 // POST transfer
 const create = (req, res) => {
