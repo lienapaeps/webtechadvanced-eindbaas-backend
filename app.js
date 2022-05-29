@@ -1,16 +1,15 @@
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
-<<<<<<< HEAD
 const config = require('./config/default.json');
-=======
-// const config = require('config');
->>>>>>> 829ec29e2d47534c5c6797d7b658ad6015344323
 const passport = require('./passport/passport');
 const transferRouter = require("./routes/api/v1/transfers");
 const userRouter = require("./routes/api/v1/users");
 
-mongoose.connect('mongodb+srv://ricky01:7t7qK0QFB7wgnBB9@cluster0.mrm22.mongodb.net/?retryWrites=true&w=majority');
+mongoose.set('useCreateIndex', true);
+mongoose.connect(process.env.dbconn || config.get('Database.conn'), {
+    useNewUrlParser: true,
+});
 const app = express();
 const port = 3002;
 app.set('view engine', 'pug');
