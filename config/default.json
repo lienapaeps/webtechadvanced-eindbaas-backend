@@ -1,6 +1,6 @@
 {
     "Database": {
-        "conn": "mongodb://localhost:27017/coinapp"
+        "conn": "mongodb+srv://ricky01:7t7qK0QFB7wgnBB9@cluster0.mrm22.mongodb.net/?retryWrites=true&w=majority"
     },
     "jwt": {
         "secret": "1234567"
