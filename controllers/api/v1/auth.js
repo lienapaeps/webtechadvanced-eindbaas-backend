@@ -1,5 +1,6 @@
 const User = require('../../../models/User');
 const jwt = require('jsonwebtoken');
+const config = require('config');
 
 // register
 const register = async (req, res) => {
@@ -17,7 +18,7 @@ const register = async (req, res) => {
         let token = jwt.sign({
             uid: result._id,
             username: result.username
-        }, "secret");
+        }, config.get('jwt.secret'));
 
         // status en webtoken meegeven
         res.json({
@@ -51,7 +52,7 @@ const login = async (req, res) => {
         let token = jwt.sign({
             uid: result.user._id,
             username: result.user.username
-        }, "secret");
+        }, config.get('jwt.secret'));
 
         return res.json({
             "status": "Success",
