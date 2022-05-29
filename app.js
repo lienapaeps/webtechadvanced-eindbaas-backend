@@ -1,7 +1,11 @@
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
+<<<<<<< HEAD
 const config = require('./config/default.json');
+=======
+// const config = require('config');
+>>>>>>> 829ec29e2d47534c5c6797d7b658ad6015344323
 const passport = require('./passport/passport');
 const transferRouter = require("./routes/api/v1/transfers");
 const userRouter = require("./routes/api/v1/users");
